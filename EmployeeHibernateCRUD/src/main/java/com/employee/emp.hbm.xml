@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping.dtd">
+	
+	<hibernate-mapping>
+	
+	<class name="com.employee.Emp" table="emp">
+    <id name="id" column="emp_id" type="int">
+    <generator class="identity"></generator>
+    
+    </id>
+    <property name="name" column="emp_name" type="string"></property>
+    <property name="email" column="emp_email" type="string"></property>
+    <property name="password" column="emp_password" type="string"></property>
+    <property name="city" column="emp_city" type="string"></property>
+    
+    
+    </class>
+	
+	</hibernate-mapping>
