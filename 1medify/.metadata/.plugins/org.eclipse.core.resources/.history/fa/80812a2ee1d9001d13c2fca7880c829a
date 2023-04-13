@@ -1,0 +1,32 @@
+package com.onerivet.payload;
+
+public class DoctorDto {
+private int doctorId;
+	
+	private String doctorEmail;
+	
+	private String doctorPassword;
+	
+	private String doctorConfirmPassword;
+	
+	private String doctorFirstName;
+	
+	private String doctorLastName;
+	
+	private String doctorSpecialization;
+	
+	private String doctorMobileNumber;
+	
+	private String doctorInstitute;
+	
+	private String doctorDateOfEstablishment;
+	
+	private String doctorGender;
+	
+	private String doctorAddress;
+	
+	private String doctorState;
+	
+	private String doctorCity;
+	
+}

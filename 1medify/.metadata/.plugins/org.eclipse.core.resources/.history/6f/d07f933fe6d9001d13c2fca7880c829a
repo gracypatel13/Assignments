@@ -1,0 +1,30 @@
+package com.onerivet.service.impl;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.onerivet.entity.Doctor;
+import com.onerivet.payload.DoctorDto;
+import com.onerivet.repository.DoctorRepository;
+import com.onerivet.service.DoctorService;
+
+@Service
+public class DoctorServiceImpl implements DoctorService {
+	
+	@Autowired
+	private DoctorRepository doctorRepository;
+
+	
+	private Doctor doctorDtoDoctor(DoctorDto dto) {
+		
+		Doctor doctor=modelMapper.map(dto,Doctor.class);
+	}
+	@Override
+	public String addDoctor(DoctorDto doctor) {
+		// TODO Auto-generated method stub
+		return doctorRepository.save();
+	}
+	
+
+}
