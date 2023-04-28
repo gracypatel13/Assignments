@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,13 +22,11 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String firstName;
-	private String lastName;
-	private String city;
+	private String fullName;
+	//@UniqueConstraint(columnNames = { "" })
+	private String userName;
 	private String password;
-	private String phoneNumber;
-	private int age;
 	private String email;
-	private boolean status;
+	//private boolean status;
 
 }
