@@ -42,7 +42,7 @@ public class SecurityConfig {
 		
 		http.cors().and().csrf().disable()
 		.authorizeHttpRequests(
-			(authorize) -> authorize.requestMatchers("/api/user/auth","/api/user/add").permitAll()
+			(authorize) -> authorize.requestMatchers("/api/user/auth","/api/user/register").permitAll()
 			.anyRequest().authenticated())
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().httpBasic();

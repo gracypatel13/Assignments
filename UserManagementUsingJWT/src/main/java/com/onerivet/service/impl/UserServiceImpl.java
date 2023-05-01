@@ -41,4 +41,12 @@ public class UserServiceImpl implements UserService {
 		return dto;
 	}
 
+	@Override
+	public void assignRole(String userName, String role) {
+		// TODO Auto-generated method stub
+		User user=userRepository.findByUserName(userName);
+		user.setRole(role);
+		
+	}
+
 }

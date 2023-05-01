@@ -16,7 +16,7 @@ public class UserDetailsImpl implements UserDetails {
 	
 	
 	public UserDetailsImpl(User user) {
-		super();
+		//super();
 		this.user = user;
 	}
 
@@ -30,12 +30,13 @@ public class UserDetailsImpl implements UserDetails {
 	public String getPassword() {
 		// TODO Auto-generated method stub
 		//return user.getPassword();
-		return "";
+		return user.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
+		System.out.println(user.getPassword());
 		return user.getUserName();
 	}
 

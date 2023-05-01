@@ -8,6 +8,8 @@ public interface UserService {
 	
 	public UserDto  getUserById(int id);
 	
+	public void assignRole(String userName,String role);
+	
 	
 
 }
