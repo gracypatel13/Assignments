@@ -1,5 +1,7 @@
 package com.onerivet.service;
 
+import java.util.List;
+
 import com.onerivet.payload.UserDto;
 
 public interface UserService {
@@ -9,6 +11,8 @@ public interface UserService {
 	public UserDto  getUserById(int id);
 	
 	public void assignRole(String userName,String role);
+	
+	public List<UserDto> getAllUser();
 	
 	
 

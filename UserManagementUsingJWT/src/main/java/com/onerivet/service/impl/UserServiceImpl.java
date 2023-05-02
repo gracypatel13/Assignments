@@ -1,5 +1,8 @@
 package com.onerivet.service.impl;
 
+import java.util.List;import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +50,12 @@ public class UserServiceImpl implements UserService {
 		User user=userRepository.findByUserName(userName);
 		user.setRole(role);
 		
+	}
+
+	@Override
+	public List<UserDto> getAllUser() {
+		// TODO Auto-generated method stub
+		return userRepository.findAll().stream().map(this::userToUserDto).collect(Collectors.toList());
 	}
 
 }

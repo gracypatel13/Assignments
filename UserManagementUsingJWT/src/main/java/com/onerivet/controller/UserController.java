@@ -1,5 +1,7 @@
 package com.onerivet.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,14 +33,14 @@ public class UserController {
 	private AuthenticationManager Manager;
 	
 	@GetMapping("/message")
-	@PreAuthorize("USER")
+	@PreAuthorize("hasAuthority('USER')")
 	public String message() {
 		return "In the user api";
 	}
 	
 	@PostMapping("/register")
 	public String addUser(@RequestBody UserDto dto) {
-		dto.setRole("USER");
+		dto.setRole("ADMIN");
 		userService.addUser(dto);
 		//userService.assignRole(dto.getUserName(), "USER");
 		return "Added";
@@ -49,12 +51,20 @@ public class UserController {
 		
 		return userService.getUserById(id);
 	}
+	 
+	@GetMapping("/all")
+	@PreAuthorize("hasAuthority('ADMIN')")
+	public List<UserDto> getAllUser(){
+		return userService.getAllUser();
+	}
 	
 	@PostMapping("/auth")
 	public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
 		//return jwtService.generateToken(authRequest.getUserName());
+		System.out.println("in auth");
 		Authentication authentication=Manager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword()));
 		if(authentication.isAuthenticated()) {
+			System.out.println(jwtService.generateToken(authRequest.getUserName()));
 		return jwtService.generateToken(authRequest.getUserName());
 		}
 		else {
